@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".RegisterActivity">
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="129dp"
+        android:layout_height="114dp"
+        android:src="@drawable/logo2"
+        android:transitionName="logo_image" />
+
+    <TextView
+        android:id="@+id/logo_name"
+        android:layout_width="326dp"
+        android:layout_height="79dp"
+        android:fontFamily="@font/bungee"
+        android:text="Welcome,"
+        android:textColor="#000"
+        android:textSize="34sp"
+        android:transitionName="logo_text" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="433dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="310dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textNoSuggestions|textPassword"
+            android:minHeight="48dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.286"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_conversion_absoluteWidth="371dp" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="310dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:hint=" Username"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.168"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_conversion_absoluteWidth="371dp" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="310dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:hint=" Email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.404"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_conversion_absoluteWidth="371dp" />
+
+        <EditText
+            android:id="@+id/phoneno"
+            android:layout_width="310dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:hint="PhoneNo"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:paddingStart="10dp"
+
+            android:paddingEnd="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.521"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_conversion_absoluteWidth="371dp" />
+
+        <Button
+            android:id="@+id/signup_btn"
+            android:layout_width="328dp"
+            android:layout_height="48dp"
+
+            android:backgroundTint="#0C0C0C"
+            android:text="Register"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.648"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_conversion_absoluteWidth="371dp" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="331dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#0C0C0C"
+            android:elevation="0dp"
+            android:minHeight="48dp"
+            android:text="Already Have An Account? Login"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.775"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck"
+            tools:layout_conversion_absoluteHeight="43dp"
+            tools:layout_conversion_absoluteWidth="361dp" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

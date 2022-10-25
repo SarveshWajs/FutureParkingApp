@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1089171876185",
+    "firebase_url": "https://degreefyp-c49fd-default-rtdb.firebaseio.com",
+    "project_id": "degreefyp-c49fd",
+    "storage_bucket": "degreefyp-c49fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089171876185:android:39a62d7cdb9c3308520448",
+        "android_client_info": {
+          "package_name": "com.example.testing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089171876185-minktojkrn8tsh10418s9qs3elahitdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE76NOYuatsWLzylscxe0LoDyWV9dShGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089171876185-minktojkrn8tsh10418s9qs3elahitdk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

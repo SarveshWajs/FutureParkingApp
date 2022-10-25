@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home"
+    tools:context=".HomeActivity">
+
+    <EditText
+        android:id="@+id/carDescription"
+        android:layout_width="311dp"
+        android:layout_height="58dp"
+        android:background="?attr/actionBarItemBackground"
+        android:ems="10"
+        android:hint="Vehicle Description"
+        android:inputType="textPersonName"
+        android:paddingLeft="15dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.786" />
+
+    <EditText
+        android:id="@+id/carModel"
+        android:layout_width="311dp"
+        android:layout_height="58dp"
+        android:background="?attr/actionBarItemBackground"
+        android:ems="10"
+        android:hint="Enter Vehicle Model"
+        android:inputType="textPersonName"
+        android:paddingLeft="15dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
+
+    <EditText
+        android:id="@+id/numberPlate"
+        android:layout_width="311dp"
+        android:layout_height="58dp"
+        android:background="?attr/actionBarItemBackground"
+        android:ems="10"
+        android:hint="Enter Plate Number"
+        android:inputType="textPersonName"
+        android:paddingLeft="15dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.286" />
+
+    <Button
+        android:id="@+id/addVehicle"
+        android:layout_width="266dp"
+        android:layout_height="52dp"
+
+        android:backgroundTint="@color/material_on_surface_disabled"
+        android:text="Add Vehicle"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.924" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="319dp"
+        android:layout_height="43dp"
+        android:text="Vehicle Storage"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="home_clicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/homepage"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="252dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.142"
+        app:srcCompat="@drawable/number1" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="256dp"
+        android:layout_height="74dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.417"
+        app:srcCompat="@drawable/car2" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="246dp"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.661"
+        app:srcCompat="@drawable/colo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
