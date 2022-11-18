@@ -1,14 +1,23 @@
 package com.example.testing;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.app.Activity;
 import android.view.View;
@@ -22,86 +31,62 @@ import java.io.IOException;
 import okhttp3.Callback;
 import okhttp3.Response;
 public class NotificationActivity extends AppCompatActivity {
-    NotificationActivityBinding binding;
+
+    EditText notifMessage, notifNumber;
+    Button send_notif;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=NotificationActivityBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        FirebaseMessaging.getInstance().subscribeToTopic("messaging");
-        setUpButtons();
+        setContentView(R.layout.notification_activity);
 
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        notifMessage = findViewById(R.id.notifMessage);
+        notifNumber = findViewById(R.id.notifNumber);
+        send_notif = findViewById(R.id.send_notif);
 
-    }
-
-    private void setUpButtons() {
-
-        binding.sendNotif.setOnClickListener(new View.OnClickListener() {
+        send_notif.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (!binding.notifMessage.getText().toString().isEmpty()&&(!binding.notifNumber.getText().toString().isEmpty())){
-                    new FCMSender().send(String.format(NotificationMessage.message,"messaging", binding.notifMessage.getText().toString(), binding.notifNumber.getText().toString()), new Callback() {
-                        @Override
-                        public void onResponse(@NonNull okhttp3.Call call, @NonNull Response response) throws IOException {
-                            NotificationActivity.this.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    if(response.code()==200){
-                                        Toast.makeText(NotificationActivity.this, "Notification sent", Toast.LENGTH_SHORT).show();
-                                        hideKeyboard(NotificationActivity.this);
-                                    }
-                                }
-                            });
-                        }
-
-                        @Override
-                        public void onFailure(@NonNull okhttp3.Call call, @NonNull IOException e) {
-
-                        }
-
-                    });
+            public void onClick(View view) {
+                if(ContextCompat.checkSelfPermission(NotificationActivity.this, Manifest.permission.SEND_SMS)== PackageManager.PERMISSION_GRANTED) {
+                    sendMessage();
                 }else{
-                    if (binding.notifNumber.getText().toString().isEmpty()){
-                        binding.notifNumber.setError("Please enter the mobile number");
-                    }if (binding.notifMessage.getText().toString().isEmpty()){
-                        binding.notifMessage.setError("Please enter the message you want to send");
-                    }
+                    ActivityCompat.requestPermissions(NotificationActivity.this,new String[]{Manifest.permission.SEND_SMS},100);
                 }
             }
         });
+}
 
-    }
-    public static void openCustomTab(Activity activity, CustomTabsIntent customTabsIntent, Uri uri) {
-        // package name is the default package
-        // for our custom chrome tab
-        String packageName = "com.android.chrome";
-        if (packageName != null) {
+    private void sendMessage() {
+        String sPhone = notifNumber.getText().toString().trim();
+        String sMessage = notifMessage.getText().toString().trim();
 
-            // we are checking if the package name is not null
-            // if package name is not null then we are calling
-            // that custom chrome tab with intent by passing its
-            // package name.
-            customTabsIntent.intent.setPackage(packageName);
+        if(!sPhone.equals("") && !sMessage.equals("")) {
 
-            // in that custom tab intent we are passing
-            // our url which we have to browse.
-            customTabsIntent.launchUrl(activity, uri);
-        } else {
-            // if the custom tabs fails to load then we are simply
-            // redirecting our user to users device default browser.
-            activity.startActivity(new Intent(Intent.ACTION_VIEW, uri));
+            SmsManager smsManager = SmsManager.getDefault();
+
+            smsManager.sendTextMessage(sPhone, null, sMessage, null, null);
+
+            Toast.makeText(getApplicationContext()
+                    , "SMS sent successfully!", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(getApplicationContext()
+                    , "Enter value first.", Toast.LENGTH_SHORT).show();
+
         }
     }
-    public static void hideKeyboard(Activity activity) {
-        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        //Find the currently focused view, so we can grab the correct window token from it.
-        View view = activity.getCurrentFocus();
-        //If no view currently has focus, create a new one, just so we can grab a window token from it
-        if (view == null) {
-            view = new View(activity);
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if(requestCode ==100 && grantResults.length> 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            sendMessage();
+        }else{
+            Toast.makeText(getApplicationContext()
+                    , "Permission Denied!", Toast.LENGTH_SHORT).show();
         }
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
 
